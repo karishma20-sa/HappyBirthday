@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Abin ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(to bottom, #ff9a9e, #fecfef);
+  color: white;
+}
+
+.page {
+  display: none;
+  padding: 20px;
+}
+
+.active {
+  display: block;
+}
+
+button {
+  padding: 12px 20px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  color: black;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+  width: 70%;
+}
+
+img {
+  width: 80%;
+  max-width: 300px;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.message {
+  background: white;
+  color: black;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- ⏳ Entry -->
+<div class="page active" id="page0">
+  <h2>Hey Abin 💖</h2>
+  <h1 id="timer">3</h1>
+  <p>Something special from your vavehhhhh 💕</p>
+</div>
+
+<!-- 🎮 Game -->
+<div class="page" id="page1">
+  <h2>Answer to unlock my love 💖</h2>
+
+  <p>1. Which date did you message me first?</p>
+  <input id="q1">
+
+  <p>2. How is our relationship going?</p>
+  <input id="q2">
+
+  <p>3. How cute are you? 😏</p>
+  <input id="q3">
+
+  <br>
+  <button onclick="checkAnswers()">Submit 💌</button>
+  <p id="error"></p>
+</div>
+
+<!-- 🎂 -->
+<div class="page" id="page2">
+  <h1>Happy Birthday Abin ❤️🎂</h1>
+  <img src="photo1.jpg">
+  <p>From your vavehhhhh 💕</p>
+  <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- 📸 -->
+<div class="page" id="page3">
+  <h2>Our Memories 🥺</h2>
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+  <img src="photo4.jpg">
+  <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- 💖 Story -->
+<div class="page" id="page4">
+  <div class="message">
+    When I feel sad… you hold my hands and hug me 🥺 <br>
+    That moment means everything ❤️ <br><br>
+    You understand me… <br>
+    you stay… <br>
+    and that means everything 💕
+  </div>
+  <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- 💌 Message -->
+<div class="page" id="page5">
+  <div class="message">
+    Happy Birthday to the most important person in my life ❤️🎂 <br><br>
+    You are my happiness, my calm, my strength 💕 <br>
+    I am so lucky to have you… <br>
+    I love you more than words can explain 💙✨
+  </div>
+  <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<!-- 😭 Emotional -->
+<div class="page" id="page6">
+  <div class="message">
+    No matter what happens… <br>
+    my heart will always choose you ❤️
+  </div>
+  <button onclick="nextPage()">Last ➡️</button>
+</div>
+
+<!-- 💕 Final -->
+<div class="page" id="page7">
+  <h2>Forever Us 💖</h2>
+  <img src="photo4.jpg">
+  <p>— Your vavehhhhh ❤️</p>
+
+  <button onclick="showSecret()">🔒 Secret</button>
+  <p id="secret"></p>
+</div>
+
+<script>
+let currentPage = 0;
+
+function nextPage() {
+  document.getElementById("page" + currentPage).classList.remove("active");
+  currentPage++;
+  document.getElementById("page" + currentPage).classList.add("active");
+}
+
+// ⏳ Timer
+let t = 3;
+let timer = setInterval(() => {
+  document.getElementById("timer").innerHTML = t;
+  t--;
+
+  if (t < 0) {
+    clearInterval(timer);
+    nextPage();
+  }
+}, 1000);
+
+// 🎮 Game
+function checkAnswers() {
+  let q1 = document.getElementById("q1").value.trim();
+  let q2 = document.getElementById("q2").value.trim().toLowerCase();
+  let q3 = document.getElementById("q3").value.trim();
+
+  if (
+    (q1 === "20/9/2025" || q1 === "20/09/2025") &&
+    (q2 === "awesome" || q2 === "cute") &&
+    q3 === "1000"
+  ) {
+    nextPage();
+  } else {
+    document.getElementById("error").innerHTML = "Think again Abin 😏❤️";
+  }
+}
+
+// 🔒 Secret
+function showSecret() {
+  document.getElementById("secret").innerHTML =
+    "Abin… you are my safest place forever ❤️🥺";
+}
+</script>
+
+</body>
+</html>
